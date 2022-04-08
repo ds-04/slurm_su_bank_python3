@@ -31,8 +31,8 @@ Options:
 from os import popen
 from os.path import exists, dirname, realpath
 from datetime import date, datetime, timedelta
-#import smtplib
-#from email.mime.text import MIMEText
+#import smtplib # we don't email in this version
+#from email.mime.text import MIMEText # we don't email in this version
 import json
 import sys
 from datafreeze import freeze
