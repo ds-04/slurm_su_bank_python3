@@ -63,12 +63,14 @@ PriorityUsageResetPeriod=NONE #Never clear historic usage. The default value.
 AccountingStorageEnforce=associations,limits,qos,safe #If you don't set the configuration parameters that begin with "AccountingStorage" then accounting information will not be referenced or recorded
 ```
 
-The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you upon the account in question. The bank enforces
+The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you upon the account in question. The bank has
 two limits:
 
-1. A service unit limit: How many compute hours is an account allowed
-   to use? <b>ENFORCED</b> by default (cron script)
-2. A date limit: How long does the proposal last? <b>NOT ENFORCED (via cron script), BUT CAPABILITY IS RETAINED</b>. We plan to manage this elsewhere.
+1. <b>A service unit limit:</b> How many compute hours is an account allowed to use?<br>
+   <b>--ENFORCED</b> by default (cron script). This is the primary use case and reason for the program.<br>
+
+2. <b>A project date limit:</b> How long does the proposal last?<br>
+   <b>--NOT ENFORCED</b> (via cron script), but capability is present, minus emailing. We plan to manage this elsewhere.<br>
 
 Other:
 
