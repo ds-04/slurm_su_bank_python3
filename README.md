@@ -135,9 +135,9 @@ Typically most operations will take place through ```slurm_bank_cron.sh``` cron 
 
 ## Held accounts
 
-An account will be held if RawUsage exceeds the SUs in the bank DB.
+An account will be held if <b>RawUsage</b> exceeds the SUs in the bank DB.
 
-If the account is held in SLURM you'll see an entry in the GrpTRESMins column e.g.:
+If the account is held in SLURM you'll see an entry in the <b>GrpTRESMins</b> column e.g.:
 
 ```
            Account       User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare                    GrpTRESMins 
@@ -180,11 +180,11 @@ Additionally you can dump to csv, but JSON is currently required to repopulate t
 
 # Useful SLURM commands
 
-See the tree of accounts and show GrpTRESMins to see if any are held.
+See the tree of accounts and show <b>GrpTRESMins</b> to see if any are held.
 
 ```sacctmgr show assoc tree -o format=account,user,share,GrpTRESMins```
 
-See RawUsage and Share information for accounts. Also show GrpTRESMins.
+See RawUsage and Share information for accounts. Also show <b>GrpTRESMins</b>.
 
 ```sshare -a -o Account,User,RawShares,NormShares,RawUsage,EffectvUsage,FairShare,GrpTRESMins```
 
