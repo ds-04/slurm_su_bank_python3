@@ -2,7 +2,7 @@
 
 # UNDER DEVELOPMENT!!! USE AT OWN RISK
 
-A Banking/Resource Allocation (Service Unit) tracking system for SLURM based upon <i>slurm_bank</i> created by Barry Moore (2017).
+A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job scheduler based upon <i>slurm_bank</i> created by Barry Moore (2017).
 
 
 # Table of Contents
