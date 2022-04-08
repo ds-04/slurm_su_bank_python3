@@ -28,7 +28,7 @@ In this version python3 updates have been made and <b>email notifications from t
 
 A Python program is used and data stored in an sqlite file.
 
-Using the existing associations in your Slurm database, we use the <b>RawUsage</b>
+Using the existing associations in your SLURM database, we use the <b>RawUsage</b>
 from `sshare` to monitor service units (CPU hours) on the cluster. From the documentation:
 
 ``` text
@@ -54,7 +54,7 @@ PriorityUsageResetPeriod=NONE #Never clear historic usage. The default value.
 AccountingStorageEnforce=associations,limits,qos,safe #If you don't set the configuration parameters that begin with "AccountingStorage" then accounting information will not be referenced or recorded
 ```
 
-The `slurm_bank.py` takes care of resetting <b>RawUsage</b> for you. The bank enforces
+The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you. The bank enforces
 two limits:
 
 1. A service unit limit: How many compute hours is an account allowed
@@ -63,7 +63,7 @@ two limits:
 
 Other:
 
-- The bank's three month check (check 90 days before project end) is dormant here. Again, plan to check externally. 
+- The bank's three month check (check 90 days before project end) is dormant here. Again, we plan to check externally. 
 - Upper and lower SU check limits are defined, these don't result in an email but do result in DB value change. Again, we plan to mail externally.
 
 
@@ -73,7 +73,7 @@ Other:
     - [dataset](https://dataset.readthedocs.io/en/latest/): "databases for lazy people"
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
 - Slurm: tested with 19x
-- SMTP: not required, we plan to use external mechanism for any notifications
+- SMTP: NOT required, we plan to use external mechanism for any notifications
 
 # Accounts and Associations 
 
