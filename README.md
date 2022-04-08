@@ -17,6 +17,7 @@ A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job s
    1. [Operation](#operation)
    2. [Adding and account](#adding-an-account)
 7. [Checking (Cron)](#checking-cron)
+8. [Dumping the DB](#dumping-the-db)
 
 
 # Why?
@@ -147,3 +148,7 @@ The resultant DB entry would look like this:<br>
 # Checking (Cron)
 
 The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all users - it is anticipated you'd run this at very least daily. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b> in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
+
+# Dumping the DB
+
+You can dump the DB to json and subsequently repopulate it. On repopulating a backup json dump is now taken to a fixed path - the path is set in ```py_sb_settings.py```
