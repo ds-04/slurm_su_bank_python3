@@ -54,7 +54,7 @@ PriorityUsageResetPeriod=NONE #Never clear historic usage. The default value.
 AccountingStorageEnforce=associations,limits,qos,safe #If you don't set the configuration parameters that begin with "AccountingStorage" then accounting information will not be referenced or recorded
 ```
 
-The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you. The bank enforces
+The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you upon the account in question. The bank enforces
 two limits:
 
 1. A service unit limit: How many compute hours is an account allowed
