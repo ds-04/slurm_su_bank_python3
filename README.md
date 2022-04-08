@@ -1,5 +1,7 @@
 # slurm_su_bank_python3
 
+# UNDER DEVELOPMENT!!! USE AT OWN RISK
+
 A Banking/Resource Allocation (Service Unit) tracking system for SLURM based upon <i>slurm_bank</i> created by Barry Moore (2017).
 
 
@@ -45,8 +47,9 @@ interval.
 Therefore, in your Slurm configuration you will need:
 
 ``` text
-PriorityDecayHalfLife=0-00:00:00
-PriorityUsageResetPeriod=NONE
+PriorityDecayHalfLife=0-00:00:00 #No decay will be applied. This is helpful if you want to enforce hard time limits per association.
+PriorityUsageResetPeriod=NONE #Never clear historic usage. The default value.
+AccountingStorageEnforce=associations,limits,qos,safe #If you don't set the configuration parameters that begin with "AccountingStorage" then accounting information will not be referenced or recorded
 ```
 
 The `slurm_bank.py` takes care of resetting "RawUsage" for you. The bank enforces
