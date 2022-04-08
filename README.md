@@ -99,6 +99,18 @@ In your SLURM configuration is envisaged you will form a tree where multiple use
 ```
 Above we see the test1 account has user members user{1..3}. Usage by submitted user jobs on the test1 account will propogate/accumulate, and in this example it'll be test1's SUs in the bank/DB that will be compared to the overall <b>RawUsage</b> stored by SLURM accounting.
 
+In project-centric regime, it is assumed you will provide SUs at the project level of the tree. Your tree may look something like:
+
+```
+Physics - example Department or Organisation or even a sublevel of those e.g. Project category
+   |
+   "test1" - Project (owned by PI) < set SU's against this entity/account
+       |
+       User1 
+       User2
+       User3
+```
+
 # Setup
 
 ## User
