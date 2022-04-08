@@ -28,7 +28,7 @@ Options:
 
 # Default is python 2.6, can't use subprocess
 from os import popen
-from os.path import exists
+from os.path import exists, dirname, realpath
 from datetime import date, datetime, timedelta
 #import smtplib
 #from email.mime.text import MIMEText
@@ -93,6 +93,14 @@ arguments = docopt(__doc__, version='slurm_bank.py version 0.0.1', options_first
 # -> these won't exist for dump or repopulate
 if not (arguments['dump'] or arguments['repopulate']):
     check_account_and_cluster(arguments['<account>'])
+
+if not exists(dirname(realpath(py_sb_settings.DATABASE))):
+    print(dirname(realpath(py_sb_settings.DATABASE)))
+    sys.exit("ERROR: folder path to store Database doesn't exist!")
+
+#Check if the DB file exists, if not create it
+if not exists(py_sb_settings.DATABASE):
+    open(py_sb_settings.DATABASE, 'a').close()
 
 # Connect to the database and get the limits table
 # Absolute path ////

@@ -17,7 +17,7 @@ Options:
 import sys
 import dataset
 from docopt import docopt
-from py_settings import DATABASE,DB_TABLE_NAME
+import py_sb_settings
 
 # Test:
 # 1. Make sure item exists
@@ -30,9 +30,9 @@ arguments = docopt(__doc__, version='slurm_sus.py version 0.0.1')
 
 # Connect to the database and get the limits table
 # Absolute path ////
-db = dataset.connect(f'sqlite:///{DATABASE}')
+db = dataset.connect(f'sqlite:///{py_sb_settings.DATABASE}')
 
-db_table = db[DB_TABLE_NAME]
+db_table = db[py_sb_settings.DB_TABLE_NAME]
 
 # Check that account exists
 check_item_in_table(db_table, arguments['<account>'])
