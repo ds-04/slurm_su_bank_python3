@@ -1,3 +1,5 @@
 database
 logs
 __pycache__
+*.csv
+*.json

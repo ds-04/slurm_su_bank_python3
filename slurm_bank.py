@@ -11,15 +11,16 @@ Usage:
     slurm_bank.py reset_usage <account>
     slurm_bank.py release_hold <account>
     slurm_bank.py three_month_check <account>
-    slurm_bank.py dump <filename>
-    slurm_bank.py repopulate <filename>
+    slurm_bank.py dump_csv <filename>
+    slurm_bank.py dump_json <filename>
+    slurm_bank.py repopulate_json <filename>
     slurm_bank.py -h | --help
     slurm_bank.py -v | --version
 
 Positional Arguments:
     <account>       The Slurm account
     <su_limit_hrs>  The limit in CPU Hours (e.g. 10,000)
-    <filename>      Dump to or repopulate from file, format is JSON
+    <filename>      Dump (to csv or JSON) or repopulate from file, format is JSON for repopulate
 
 Options:
     -h --help                       Print this screen and exit
@@ -91,7 +92,7 @@ arguments = docopt(__doc__, version='slurm_bank.py version 0.0.1', options_first
 
 # Check account and cluster associations actually exist
 # -> these won't exist for dump or repopulate
-if not (arguments['dump'] or arguments['repopulate']):
+if not (arguments['dump_csv'] or arguments['dump_json'] or arguments['repopulate_json']):
     check_account_and_cluster(arguments['<account>'])
 
 if not exists(dirname(realpath(py_sb_settings.DATABASE))):
@@ -100,7 +101,7 @@ if not exists(dirname(realpath(py_sb_settings.DATABASE))):
 
 #Check if the DB file exists, if not create it
 if not exists(py_sb_settings.DATABASE):
-    open(py_sb_settings.DATABASE, 'a').close()
+    open(py_sb_settings.DATABASE, 'a', encoding="utf8").close()
 
 # Connect to the database and get the limits table
 # Absolute path ////
@@ -322,14 +323,21 @@ elif arguments['three_month_check']:
         pass
         # *******************INFORM ACTION REQUIRED********************
 
-elif arguments['dump']:
+elif arguments['dump_json']:
     if not exists(arguments['<filename>']):
         items = db[py_sb_settings.DB_TABLE_NAME].all()
         freeze(items, format='json', filename=arguments['<filename>'])
     else:
         sys.exit(f"ERROR: file {arguments['<filename>']} exists, don't want you to overwrite a backup")
 
-elif arguments['repopulate']:
+elif arguments['dump_csv']:
+    if not exists(arguments['<filename>']):
+        items = db[py_sb_settings.DB_TABLE_NAME].all()
+        freeze(items, format='csv', filename=arguments['<filename>'])
+    else:
+        sys.exit(f"ERROR: file {arguments['<filename>']} exists, don't want you to overwrite a backup")
+
+elif arguments['repopulate_json']:
     if exists(arguments['<filename>']):
         print("DANGER: This function OVERWRITES slurm_bank.db, are you sure you want to do this? [y/N]")
         choice = input().lower()
