@@ -107,4 +107,4 @@ To add an account and SUs you simply execute ```slurm_bank.py``` e.g.
 
 # Checking (Cron)
 
-The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all users. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b>in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
+The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all users. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b> in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
