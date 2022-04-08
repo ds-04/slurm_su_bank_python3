@@ -9,7 +9,7 @@ A Banking/Resource Allocation (Service Unit) tracking system for SLURM based upo
 1. [Why?](#why)
 2. [How?](#how)
 3. [Prerequisites](#prerequisites)
-4. [Accounts and Associations](#accounts)
+4. [Accounts and Associations](#accounts-and-associations)
 5. [Setup](#setup)
 6. [Usage](#usage)
 7. [Checking (Cron)](#checking-cron)
@@ -26,13 +26,15 @@ In this version python3 updates have been made and <b>email notifications from t
 
 # How?
 
-Using the existing associations in your Slurm database, we use the "RawUsage"
+A Python program is used and data stored in an sqlite file.
+
+Using the existing associations in your Slurm database, we use the <b>RawUsage</b>
 from `sshare` to monitor service units (CPU hours) on the cluster. From the documentation:
 
 ``` text
 Raw Usage
 The number of cpu-seconds of all the jobs that charged the account by the user.
-This number will decay over time when PriorityDecayHalfLife is defined
+This number will decay over time when PriorityDecayHalfLife is defined.
 
 PriorityDecayHalfLife
 This controls how long prior resource use is considered in determining how
@@ -52,7 +54,7 @@ PriorityUsageResetPeriod=NONE #Never clear historic usage. The default value.
 AccountingStorageEnforce=associations,limits,qos,safe #If you don't set the configuration parameters that begin with "AccountingStorage" then accounting information will not be referenced or recorded
 ```
 
-The `slurm_bank.py` takes care of resetting "RawUsage" for you. The bank enforces
+The `slurm_bank.py` takes care of resetting <b>RawUsage</b> for you. The bank enforces
 two limits:
 
 1. A service unit limit: How many compute hours is an account allowed
@@ -84,18 +86,25 @@ Above we see the test1 account has user members user{1..3}. Usage and Service Un
 
 # Setup
 
-- py_sb_settings.py is used to set the bank's behaviour and file locations for the python code.
-- env.sh is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
+- <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
+- <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
 
 # Usage
 
-After setup py_sb_settings.py and env.sh...
+After setup ```py_sb_settings.py``` and ```env.sh```...
 
 Typically most operations will take place through slurm_bank_cron.sh cron checks.
 
-slurm_bank.py is used to change SU balances and to release.
+To add an account and SUs you simply execute ```slurm_bank.py``` e.g.
 
+```
+./slurm_bank.py insert test1 10000
+```
+
+```slurm_bank.py``` is used to change SU balances and to release.
+
+```db_print.sh``` is a simple script that'll quickly tell you what's going on by printing the entire DB table. Also consult the cron logs.
 
 # Checking (Cron)
 
-The script <i>slurm_bank_cron.sh</i> will perform a check of Service Units by looping through all users. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's GrpTRESMins to hold the account. This can be changed in py_sb_settings.py
+The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all users. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b>in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
