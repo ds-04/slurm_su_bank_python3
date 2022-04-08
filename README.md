@@ -91,7 +91,7 @@ In your SLURM configuration is envisaged you will form a tree where multiple use
     test1            user2    parent    0.025000     2587994      0.963441   0.545455 
     test1            user3    parent    0.025000       98202      0.036558   0.545455 
 ```
-Above we see the test1 account has user members user{1..3}. Usage and Service Units will propogate.
+Above we see the test1 account has user members user{1..3}. Usage by submitted user jobs on the test1 account will propogate/accumulate, and in this example it'll be test1's SUs in the bank/DB that will be compared to the overall <b>RawUsage</b> stored by SLURM accounting.
 
 # Setup
 
