@@ -58,8 +58,8 @@ The `slurm_bank.py` takes care of resetting <b>RawUsage</b> for you. The bank en
 two limits:
 
 1. A service unit limit: How many compute hours is an account allowed
-   to use? <b>ENFORCED</b>
-2. A date limit: How long does the proposal last? <b>NOT ENFORCED, BUT CAPABILITY IS RETAINED</b>. We plan to manage this elsewhere.
+   to use? <b>ENFORCED</b> by default (cron script)
+2. A date limit: How long does the proposal last? <b>NOT ENFORCED (via cron script), BUT CAPABILITY IS RETAINED</b>. We plan to manage this elsewhere.
 
 The bank's three month check (check 90 days before project end) is dormant here. Again we plan to check externally. 
 
