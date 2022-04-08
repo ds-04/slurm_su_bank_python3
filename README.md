@@ -77,6 +77,7 @@ Other:
 - Python3
     - [dataset](https://dataset.readthedocs.io/en/latest/): "databases for lazy people"
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
+    - [datafreeze](https://github.com/pudo/datafreeze): Dump (freeze) SQL query results from a database. As per https://dataset.readthedocs.io/en/latest/api.html datafreeze is a seperate module to dataset - See Data Export section.
 - Slurm: tested with 19x
 - SMTP: NOT required, we plan to use external mechanism for any notifications
 
