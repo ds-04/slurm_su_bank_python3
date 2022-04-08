@@ -16,7 +16,8 @@ A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job s
    3. [Charging](#charging)
 6. [Usage](#usage)
    1. [Operation](#operation)
-   2. [Adding and account](#adding-an-account)
+   2. [Held accounts](#held-accounts)
+   3. [Adding and account](#adding-an-account)
 7. [Checking (Cron)](#checking-cron)
 8. [Dumping the DB](#dumping-the-db)
 9. [Useful SLURM commands](#useful-slurm-commands)
@@ -131,6 +132,20 @@ Typically most operations will take place through ```slurm_bank_cron.sh``` cron 
 
 ```db_print.sh``` is a simple script that'll quickly tell you what's going on overall by printing the entire DB table. Also consult the cron logs.
 
+## Held accounts
+
+An account will be held if RawUsage exceeds the SUs in the bank DB.
+
+If the account is held in SLURM you'll see an entry in the GrpTRESMins column e.g.:
+
+```
+           Account       User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare                    GrpTRESMins 
+------------------------------------------------------------------------------------------------------------------------ 
+ test1                           parent    0.025000     2686197      0.999999                                     cpu=0 
+    test1              user1     parent    0.025000           0      0.000000   0.545455                                
+    test1              user2     parent    0.025000     2587994      0.963441   0.545455                                
+    test1              user3     parent    0.025000       98202      0.036558   0.545455                                
+```
 
 ## Adding an account:
 
