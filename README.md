@@ -61,7 +61,10 @@ two limits:
    to use? <b>ENFORCED</b> by default (cron script)
 2. A date limit: How long does the proposal last? <b>NOT ENFORCED (via cron script), BUT CAPABILITY IS RETAINED</b>. We plan to manage this elsewhere.
 
-The bank's three month check (check 90 days before project end) is dormant here. Again we plan to check externally. 
+Other:
+
+- The bank's three month check (check 90 days before project end) is dormant here. Again, plan to check externally. 
+- Upper and lower SU check limits are defined, these don't result in an email but do result in DB value change. Again, we plan to mail externally.
 
 
 # Prerequisites
