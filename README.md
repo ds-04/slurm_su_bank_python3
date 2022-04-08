@@ -11,8 +11,9 @@ A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job s
 3. [Prerequisites](#prerequisites)
 4. [Accounts and Associations](#accounts-and-associations)
 5. [Setup](#setup)
-   1. [Vars](#vars)
-   2. [Charging](#charging)
+   1. [User](#user) 
+   2. [Vars](#vars)
+   3. [Charging](#charging)
 6. [Usage](#usage)
    1. [Operation](#operation)
    2. [Adding and account](#adding-an-account)
@@ -96,6 +97,10 @@ In your SLURM configuration is envisaged you will form a tree where multiple use
 Above we see the test1 account has user members user{1..3}. Usage by submitted user jobs on the test1 account will propogate/accumulate, and in this example it'll be test1's SUs in the bank/DB that will be compared to the overall <b>RawUsage</b> stored by SLURM accounting.
 
 # Setup
+
+## User
+
+Clone this repo/code on the SLURM master node. e.g. into a new directory, /etc/slurm_bank. Make ownership and user of program the slurm user (not root!).
 
 ## Vars
 
