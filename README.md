@@ -82,8 +82,8 @@ Other:
     - [dataset](https://dataset.readthedocs.io/en/latest/): "databases for lazy people"
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
     - [datafreeze](https://github.com/pudo/datafreeze): Dump (freeze) SQL query results from a database. As per https://dataset.readthedocs.io/en/latest/api.html datafreeze is a seperate module to dataset - See Data Export section.
-- Slurm: tested with 19x
-- SMTP: NOT required, we plan to use external mechanism for any notifications
+    - SMTP: NOT required, we plan to use external mechanism for any notifications
+- SLURM: tested with 19x
 
 # Accounts and Associations 
 
@@ -103,7 +103,8 @@ Above we see the test1 account has user members user{1..3}. Usage by submitted u
 
 ## User
 
-Clone this repo/code on the SLURM master node. e.g. into a new directory, /etc/slurm_bank. Make ownership and user of program the slurm user (not root!).
+- Clone this repo/code on the SLURM master node. e.g. into a new directory, /etc/slurm_bank. 
+- Make ownership and user of program the slurm user (not root!).
 
 ## Vars
 
@@ -176,7 +177,7 @@ The script ```slurm_bank_cron.sh``` will perform a check of Service Units by loo
 
 You can dump the DB to JSON and subsequently repopulate it. On repopulating a backup JSON dump is now taken to a fixed path - the path is set in ```py_sb_settings.py```
 
-Additionally you can dump to csv, but JSON is currently required to repopulate the sqlite DB, which is required for operation of the bank.
+Additionally you can dump to CSV, but JSON is currently required to repopulate the sqlite DB, which is required for operation of the bank.
 
 # Useful SLURM commands
 
