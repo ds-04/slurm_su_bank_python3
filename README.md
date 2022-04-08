@@ -84,6 +84,8 @@ Other:
 
 In your SLURM configuration is envisaged you will form a tree where multiple users are associated with an account (project) e.g.:
 ```
+       Account       User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare 
+-------------------------------------------------------------------------------------------------
   test1                       parent    0.025000     2686197      0.999999            
     test1            user1    parent    0.025000           0      0.000000   0.545455 
     test1            user2    parent    0.025000     2587994      0.963441   0.545455 
