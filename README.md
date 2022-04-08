@@ -171,7 +171,7 @@ The resultant DB entry would look like this:<br>
 
 # Checking (Cron)
 
-The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all users - it is anticipated you'd run this at very least daily. If a user has exhausted their SUs they will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b> in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
+The script ```slurm_bank_cron.sh``` will perform a check of Service Units by looping through all SLURM accounts - it is anticipated you'd run this at very least daily. If an account has exhausted it's SUs that account will be held. The mechanism to hold we will use is by setting the account's <b>GrpTRESMins</b> to <b>0</b> in SLURM to hold the account. This can be changed in ```py_sb_settings.py```
 
 # Dumping the DB
 
