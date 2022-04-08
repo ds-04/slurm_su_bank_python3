@@ -27,7 +27,7 @@ Options:
     -v --version                    Print the version of slurm_bank.py
 '''
 
-# Default is python 2.6, can't use subprocess
+# popen code from python 2x working on 3.6.8 ... eventual plan to use subprocess.run on python > 3.6.8
 from os import popen
 from os.path import exists, dirname, realpath
 from datetime import date, datetime, timedelta
