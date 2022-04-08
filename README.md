@@ -11,7 +11,11 @@ A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job s
 3. [Prerequisites](#prerequisites)
 4. [Accounts and Associations](#accounts-and-associations)
 5. [Setup](#setup)
+   1. [Vars](#vars)
+   2. [Charging](#charging)
 6. [Usage](#usage)
+   1. [Operation](#operation)
+   2. [Adding and account](#adding-an-account)
 7. [Checking (Cron)](#checking-cron)
 
 
@@ -89,6 +93,8 @@ Above we see the test1 account has user members user{1..3}. Usage and Service Un
 
 # Setup
 
+## Vars
+
 - <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
 - <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
 
@@ -105,6 +111,8 @@ Here, CPU=1.0 means 1 service unit per hour to use 1 core and GRES/gpu=1.0 means
 
 # Usage
 
+## Operation
+
 After setup of ```py_sb_settings.py``` and ```env.sh``` ...
 
 Typically most operations will take place through ```slurm_bank_cron.sh``` cron checks.
@@ -114,7 +122,7 @@ Typically most operations will take place through ```slurm_bank_cron.sh``` cron 
 ```db_print.sh``` is a simple script that'll quickly tell you what's going on overall by printing the entire DB table. Also consult the cron logs.
 
 
-## ADDING AN ACCOUNT TO THE BANK:
+## Adding an account:
 
 To add an account and SUs you simply execute ```slurm_bank.py``` e.g.
 
