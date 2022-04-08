@@ -78,7 +78,7 @@ Other:
 # Accounts and Associations 
 
 
-It is envisaged you will form a tree e.g.:
+In your SLURM configuration is envisaged you will form a tree where multiple users are associated with an account (project) e.g.:
 ```
   test1                       parent    0.025000     2686197      0.999999            
     test1            user1    parent    0.025000           0      0.000000   0.545455 
@@ -91,6 +91,15 @@ Above we see the test1 account has user members user{1..3}. Usage and Service Un
 
 - <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
 - <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
+
+## Charging
+
+In SLURM you will need to setup billing per partition (slurm.conf) e.g. within partition definition:
+<br><br>
+Example compute:<br>
+```TRESBillingWeights="CPU=1.0,Mem=0.25G,GRES/gpu=0.0"```<br>
+Example GPU:<br>
+```TRESBillingWeights="CPU=1.0,Mem=0.25G,GRES/gpu=1.0"```
 
 
 # Usage
