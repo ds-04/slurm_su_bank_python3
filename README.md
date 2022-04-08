@@ -92,11 +92,19 @@ Above we see the test1 account has user members user{1..3}. Usage and Service Un
 - <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
 - <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
 
+
 # Usage
 
-After setup ```py_sb_settings.py``` and ```env.sh```...
+After setup of ```py_sb_settings.py``` and ```env.sh``` ...
 
-Typically most operations will take place through slurm_bank_cron.sh cron checks.
+Typically most operations will take place through ```slurm_bank_cron.sh``` cron checks.
+
+```slurm_bank.py``` is used to manage/view SU balances for accounts stored in the DB and to release (account exceeded SUs).
+
+```db_print.sh``` is a simple script that'll quickly tell you what's going on overall by printing the entire DB table. Also consult the cron logs.
+
+
+## ADDING AN ACCOUNT TO THE BANK:
 
 To add an account and SUs you simply execute ```slurm_bank.py``` e.g.
 
@@ -104,9 +112,17 @@ To add an account and SUs you simply execute ```slurm_bank.py``` e.g.
 ./slurm_bank.py insert test1 10000
 ```
 
-```slurm_bank.py``` is used to change SU balances and to release.
+Querying immediately after would look like this
 
-```db_print.sh``` is a simple script that'll quickly tell you what's going on by printing the entire DB table. Also consult the cron logs.
+```
+./slurm_bank.py get_sus test1
+Account test1 has 10000 SUs
+```
+
+The resultant DB entry would look like this:<br>
+
+```1|test1|10000|2022-04-08|0|0|0```
+
 
 # Checking (Cron)
 
