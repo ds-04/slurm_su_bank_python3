@@ -152,4 +152,6 @@ The script ```slurm_bank_cron.sh``` will perform a check of Service Units by loo
 
 # Dumping the DB
 
-You can dump the DB to json and subsequently repopulate it. On repopulating a backup json dump is now taken to a fixed path - the path is set in ```py_sb_settings.py```
+You can dump the DB to JSON and subsequently repopulate it. On repopulating a backup JSON dump is now taken to a fixed path - the path is set in ```py_sb_settings.py```
+
+Additionally you can dump to csv, but JSON is currently required to repopulate the sqlite DB, which is required for operation of the bank.
