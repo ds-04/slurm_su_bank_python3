@@ -101,6 +101,7 @@ Example compute:<br>
 Example GPU:<br>
 ```TRESBillingWeights="CPU=1.0,Mem=0.25G,GRES/gpu=1.0"```
 
+Here, CPU=1.0 means 1 service unit per hour to use 1 core and GRES/gpu=1.0 means 1 service unit per hour to use 1 GPU card.
 
 # Usage
 
