@@ -4,6 +4,7 @@
 
 A Banking/Resource Allocation (Service Unit) tracking system for the SLURM job scheduler based upon <i>slurm_bank</i> created by Barry Moore (2017).
 
+Developed on python 3.6.8. Eventual plan to update popen for python 3.7.
 
 # Table of Contents
 1. [Why?](#why)
@@ -77,7 +78,7 @@ Other:
 
 # Prerequisites
 
-- Python3
+- Python3 (tested on 3.6.8)
     - [dataset](https://dataset.readthedocs.io/en/latest/): "databases for lazy people"
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
     - [datafreeze](https://github.com/pudo/datafreeze): Dump (freeze) SQL query results from a database. As per https://dataset.readthedocs.io/en/latest/api.html datafreeze is a seperate module to dataset - See Data Export section.
