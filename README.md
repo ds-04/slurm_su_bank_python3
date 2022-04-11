@@ -67,10 +67,10 @@ The `slurm_bank.py` takes care of resetting SLURM'S <b>RawUsage</b> for you upon
 two limits:
 
 1. <b>A service unit limit:</b> How many compute hours is an account allowed to use?<br>
-   <b>--ENFORCED</b> by default (cron script). This is the primary use case and reason for the program.<br>
+   <b>--ENFORCED</b> by default (typically via cron script). This is the primary use case and reason for the program.<br>
 
 2. <b>A project date limit:</b> How long does the proposal last?<br>
-   <b>--NOT ENFORCED</b> (via cron script), but capability is present, minus emailing. We plan to manage this elsewhere.<br>
+   <b>--NOT ENFORCED</b> (typically via cron script), but capability is present, minus emailing. We plan to manage this elsewhere.<br>
 
 Other:
 
@@ -123,7 +123,7 @@ Physics - example Department or Organisation or even a sublevel of those e.g. Pr
 ## Vars
 
 - <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
-- <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the ```db_print.sh``` script.
+- <b><i>env.sh</i></b> is used primarily to setup vars for ```slurm_bank_cron.sh``` cron checks. It also is used by the ```db_print.sh``` script.
 
 ## Charging
 
