@@ -99,14 +99,14 @@ In your SLURM configuration is envisaged you will form a tree where multiple use
     test1            user2    parent    0.025000     2587994      0.963441   0.545455 
     test1            user3    parent    0.025000       98202      0.036558   0.545455 
 ```
-Above we see the test1 account has user members user{1..3}. Usage by submitted user jobs on the test1 account will propogate/accumulate, and in this example it'll be test1's SUs in the bank/DB that will be compared to the overall <b>RawUsage</b> stored by SLURM accounting.
+Above we see the <i>test1</i> account has user members <i>user{1..3}</i>. Usage by submitted user jobs on the <i>test1</i> account will propogate/accumulate, and in this example it'll be <i>test1's</i> SUs in the bank/DB that will be compared to the overall <b>RawUsage</b> stored by SLURM accounting.
 
 In project-centric regime, it is assumed you will provide SUs at the project level of the tree. Your tree may look something like:
 
 ```
 Physics - example Department or Organisation or even a sublevel of those e.g. Project category
    |
-   "test1" - Project (owned by PI) < set SU's against this entity/account
+   test1 - Project (owned by PI) < set SU's against this entity/account
        |
        User1 
        User2
@@ -117,13 +117,13 @@ Physics - example Department or Organisation or even a sublevel of those e.g. Pr
 
 ## User
 
-- Clone this repo/code on the SLURM master node. e.g. into a new directory, /etc/slurm_bank. 
-- Make ownership and user of program the slurm user (not root!).
+- Clone this repo/code on the SLURM master node. e.g. into a new directory, e.g. /etc/slurm_bank 
+- Make ownership and user of program the SLURM user (not root!).
 
 ## Vars
 
 - <b><i>py_sb_settings.py</i></b> is used to set the bank's behaviour and file locations for the python code.
-- <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the db_print.sh script.
+- <b><i>env.sh</i></b> is used primarily to setup vars for slurm_bank_cron.sh cron checks. It also is used by the ```db_print.sh``` script.
 
 ## Charging
 
