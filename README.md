@@ -85,6 +85,7 @@ Other:
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
     - [datafreeze](https://github.com/pudo/datafreeze): Dump (freeze) SQL query results from a database. As per https://dataset.readthedocs.io/en/latest/api.html datafreeze is a seperate module to dataset - See Data Export section.
     - SMTP: NOT required, we plan to use external mechanism for any notifications
+- ```sqlite``` for ```db_print.sh``` script
 - SLURM: tested with 19x
 
 # Accounts and Associations 
