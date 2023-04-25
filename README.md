@@ -80,7 +80,7 @@ Other:
 
 # Prerequisites
 
-- Python3 (tested on 3.6.8)
+- Python3 (tested on 3.6.8). Requirements file for pip3 included.
     - [dataset](https://dataset.readthedocs.io/en/latest/): "databases for lazy people"
     - [docopt](http://docopt.org): "command line arguments parser, that will make you smile"
     - [datafreeze](https://github.com/pudo/datafreeze): Dump (freeze) SQL query results from a database. As per https://dataset.readthedocs.io/en/latest/api.html datafreeze is a seperate module to dataset - See Data Export section.
