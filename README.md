@@ -196,7 +196,7 @@ Additionally you can dump to CSV, but JSON is currently required to repopulate t
 
 # Useful SLURM commands
 
-See the tree of accounts and show <b>GrpTRESMins</b> to see if any are held. You also consider using ```where account=projZZZZ```
+See the tree of accounts and show <b>GrpTRESMins</b> to see if any are held. You may wish to also consider using ```where account=projZZZZ```
 
 ```sacctmgr show assoc tree -o format=account,user,share,GrpTRESMins```
 
