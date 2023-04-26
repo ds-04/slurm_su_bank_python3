@@ -1,0 +1,7 @@
+/var/log/slurm/slurm_bank/*.log {
+    weekly
+    missingok
+    rotate 10
+    copytruncate
+    size 10M
+}
