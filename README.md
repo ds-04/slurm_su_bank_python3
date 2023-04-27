@@ -211,3 +211,9 @@ Billing rate for running job <jobID>
 Billing rate for completed job <jobID>
 
 ```sacct -X --format=AllocTRES%80,Elapsed -j <jobID>```
+
+<h3>Other resources</h3>
+
+This tool prints out the Slurm associations limits and current usage values for a user and may be worth including in your deployment: 
+
+https://github.com/OleHolmNielsen/Slurm_tools/tree/master/showuserlimits
